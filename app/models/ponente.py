@@ -41,7 +41,7 @@ def get_all_ponentes():
 
 def edit_ponente(data):
     try:
-        ponente_ = ponente.query.filter_by(ponente_id=data["ponente_id"]).first()
+        ponente_ = ponente.query.filter_by(ponente_id=data["id"]).first()
         ponente_.pon_nombre=data["nombre"]
         ponente_.pon_correo=data["correo"]
         ponente_.pon_telefono=data["telefono"]

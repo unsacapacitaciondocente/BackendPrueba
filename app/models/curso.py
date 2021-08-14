@@ -19,9 +19,11 @@ class curso(db.Model):
   
 def add_curso(data):
     try:
+       
         db.session.add(curso(cur_nombre=data["nombre"],cur_descripcion=data["descripcion"],cur_estado=data["estado"],cur_resolucion=data["resolucion"]))
         db.session.commit()           
     except:
+        
         return False
     return True
 
@@ -36,7 +38,7 @@ def get_all_cursos():
 
 def edit_curso(data):
     try:
-        curso_ = curso.query.filter_by(curso_id=data["curso_id"]).first()
+        curso_ = curso.query.filter_by(curso_id=data["id"]).first()
         curso_.cur_nombre=data["nombre"]
         curso_.cur_descripcion=data["descripcion"]
         curso_.cur_estado=data["estado"]
