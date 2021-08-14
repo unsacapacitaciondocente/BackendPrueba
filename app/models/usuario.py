@@ -1,22 +1,28 @@
 from .bd_connection import db
+from typing import Tuple
 
 class usuario(db.Model):
     usuario_id = db.Column(db.Integer,primary_key=True)
-    username = db.Column(db.String,nullable=False)
-    password = db.Column(db.String,nullable=True)
+    us_username = db.Column(db.String,nullable=True)
+    us_password = db.Column(db.String,nullable=True)
+    us_nombre = db.Column(db.String,nullable=True) 
+    us_correo= db.Column(db.String,nullable=True)
+    us_dni = db.Column(db.String,nullable=True)
 
     def toJSON(self):
         usuario_json = {
             "id": self.usuario_id,
-            "username": self.username,
-            "password": self.password,
-           
+            "username": self.us_username,
+            "password": self.us_password,
+            "nombre": self.us_nombre,
+            "correo": self.us_correo,
+            "dni": self.us_dni
         }
         return usuario_json
 
 def add_usuario(data):
     try:
-        db.session.add(usuario(username=data["username"], password=data["password"]))
+        db.session.add(usuario(us_username=data['username'],us_password=data['password'],us_nombre=data['nombre'],us_correo=data['correo'],us_dni=data['dni']))
         db.session.commit()
     except:
         return False
@@ -33,9 +39,12 @@ def get_all_usuarios():
 
 def edit_usuario(data):
     try:
-        usuario_ = usuario.query.filter_by(usuario_id=data["usuario_id"]).first()
-        usuario_.username=data["username"]
-        password_.password=data["password"]
+        usuario_ = usuario.query.filter_by(usuario_id=data["id"]).first()
+        usuario_.us_username=data["username"]
+        usuario_.us_password=data["password"]
+        usuario_.us_nombre=data['nombre']
+        usuario_.us_correo=data['correo']
+        usuario_.us_dni=data['dni']
         db.session.commit()
     except:
         return False
@@ -59,14 +68,14 @@ def detalle_usuario(id):
     return usuario_.toJSON()
 
 def buscar_username(username):
-    usuario_ = usuario.query.filter_by(username=username).first()
+    usuario_ = usuario.query.filter_by(us_username=username).first()
     if usuario_ == None:
         return {"message":"No se ha podido obtener"}
     return usuario_.toJSON()
 
 def authentication(username,password):
     print('__authenticate')
-    usuario_ = usuario.query.filter_by(username=username).first()
+    usuario_ = usuario.query.filter_by(us_username=username).first()
     if usuario_.id==password:
         return usuario_
 
