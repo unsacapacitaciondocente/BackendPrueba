@@ -54,7 +54,7 @@ def get_all_docentes():
 
 def edit_docente(data):
     try:
-        docente_ = docente.query.filter_by(docente_id=data["id"]).first()
+        docente_ = docente.query.filter_by(docente_id=data["docente_id"]).first()
         docente_.doc_nombre = data["nombre"]
         docente_.doc_dni = data["dni"]
         docente_.doc_email = data["email"]

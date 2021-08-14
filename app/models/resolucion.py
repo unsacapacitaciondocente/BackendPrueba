@@ -41,7 +41,7 @@ def get_all_resoluciones():
 
 def edit_resolucion(data):
     try:
-        resolucion_ = resolucion.query.filter_by(resolucion_id=data["id"]).first()
+        resolucion_ = resolucion.query.filter_by(resolucion_id=data["resolucion_id"]).first()
         resolucion_.res_nombre=data["nombre"]
         resolucion_.res_estado=data["estado"]
         resolucion_.res_fecha=data["fecha"]
