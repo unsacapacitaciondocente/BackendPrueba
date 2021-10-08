@@ -5,6 +5,9 @@ from app.routes import api
 #Configuration 
 CORS(app)
 
+if __name__ == '__main__':
+    app.run(debug=False)
+
 
 
 
