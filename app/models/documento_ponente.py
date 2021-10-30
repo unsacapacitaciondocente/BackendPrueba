@@ -19,7 +19,7 @@ class documento_ponente(db.Model):
 def add_documento_ponente(data):
     try:
        
-        db.session.add(documento_ponente(documento_ponente_id=data["id"],doc_pon_nombre=data["nombre"],ponente_id=data["ponente_id"],doc_log_url=data["log_url"]))
+        db.session.add(documento_ponente(doc_pon_nombre=data["nombre"],ponente_id=data["ponente_id"],doc_log_url=data["log_url"]))
         db.session.commit()           
     except:
         return False
