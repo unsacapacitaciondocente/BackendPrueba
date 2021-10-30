@@ -1,3 +1,4 @@
+from re import I
 from flask_restful import Api
 
 from app.resources.index import Index
@@ -32,11 +33,28 @@ from app.resources.usuario.usuario_delete_api import Usuario_delete_api
 from app.resources.usuario.usuario_detalle_api import Usuario_detalle_api
 from app.resources.usuario.usuario_edit_api import Usuario_edit_api
 
+
 from app.resources.curso_capacitacion.curso_capacitacion_api import Curso_capacitacion_api
 from app.resources.curso_capacitacion.curso_capacitacion_add_api import Curso_capacitacion_add_api
 from app.resources.curso_capacitacion.curso_capacitacion_delete_api import Curso_capacitacion_delete_api
 from app.resources.curso_capacitacion.curso_capacitacion_detalle_api import Curso_capacitacion_detalle_api
 from app.resources.curso_capacitacion.curso_capacitacion_edit_api import Curso_capacitacion_edit_api
+
+from app.resources.grupo.grupo_api import Grupo_api
+from app.resources.grupo.grupo_add_api import Grupo_add_api
+from app.resources.grupo.grupo_delete_api import Grupo_delete_api
+from app.resources.grupo.grupo_detalle_api  import Grupo_detalle_api
+from app.resources.grupo.grupo_edit_api import Grupo_edit_api
+
+from app.resources.reportes.cursos_by_ponente_api import Cursos_by_ponente_api
+
+
+
+from app.resources.documento_ponente.documento_ponente_api import Documento_ponente_api
+from app.resources.documento_ponente.documento_ponente_add_api import Documento_ponente_add_api
+from app.resources.documento_ponente.documento_ponente_delete_api import Documento_ponente_delete_api
+from app.resources.documento_ponente.documento_ponente_detalle_api import Documento_ponente_detalle_api
+from app.resources.documento_ponente.documento_ponente_edit import Documento_ponente_edit_api
 
 from app.resources.login.login import Login_api
 
@@ -81,6 +99,22 @@ api.add_resource(Curso_capacitacion_add_api,'/curso_capacitacion/create/','/curs
 api.add_resource(Curso_capacitacion_edit_api,'/curso_capacitacion/edit/','/curso_capacitacion/edit/<string:id>')
 api.add_resource(Curso_capacitacion_delete_api,'/curso_capacitacion/delete/','/curso_capacitacion/delete/<string:id>')
 api.add_resource(Curso_capacitacion_detalle_api,'/curso_capacitacion/detalle/','/curso_capacitacion/detalle/<string:id>')
+
+api.add_resource(Grupo_api,'/grupo/','/grupo/<string:id>')
+api.add_resource(Grupo_add_api,'/grupo/create/','/grupo/create/<string:id>')
+api.add_resource(Grupo_edit_api,'/grupo/edit/','/grupo/edit/<string:id>')
+api.add_resource(Grupo_delete_api,'/grupo/delete/','/grupo/delete/<string:id>')
+api.add_resource(Grupo_detalle_api,'/grupo/detalle/','/grupo/detalle/<string:id>')
+
+api.add_resource(Cursos_by_ponente_api,'/reporte/cursoP/','/reporte/cursoP/<string:id>')
+
+api.add_resource(Documento_ponente_api,'/documento_ponente/','/documento_ponente/<string:id>')
+api.add_resource(Documento_ponente_add_api,'/documento_ponente/create/','/documento_ponente/create/<string:id>')
+api.add_resource(Documento_ponente_edit_api,'/documento_ponente/edit/','/documento_ponente/edit/<string:id>')
+api.add_resource(Documento_ponente_delete_api,'/documento_ponente/delete/','/documento_ponente/delete/<string:id>')
+api.add_resource(Documento_ponente_detalle_api,'/documento_ponente/detalle/','/documento_ponente/detalle/<string:id>')
+
+
 
 
 api.add_resource(Login_api,'/login/','/login/<string:id>')
