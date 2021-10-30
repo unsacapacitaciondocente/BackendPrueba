@@ -32,6 +32,11 @@ from app.resources.usuario.usuario_delete_api import Usuario_delete_api
 from app.resources.usuario.usuario_detalle_api import Usuario_detalle_api
 from app.resources.usuario.usuario_edit_api import Usuario_edit_api
 
+from app.resources.curso_capacitacion.curso_capacitacion_api import Curso_capacitacion_api
+from app.resources.curso_capacitacion.curso_capacitacion_add_api import Curso_capacitacion_add_api
+from app.resources.curso_capacitacion.curso_capacitacion_delete_api import Curso_capacitacion_delete_api
+from app.resources.curso_capacitacion.curso_capacitacion_detalle_api import Curso_capacitacion_detalle_api
+from app.resources.curso_capacitacion.curso_capacitacion_edit_api import Curso_capacitacion_edit_api
 
 from app.resources.login.login import Login_api
 
@@ -70,6 +75,13 @@ api.add_resource(Usuario_add_api, '/usuario/create/','/usuario/create/<string:id
 api.add_resource(Usuario_edit_api, '/usuario/edit/','/usuario/edit/<string:id>')
 api.add_resource(Usuario_delete_api, '/usuario/delete/','/usuario/delete/<string:id>')
 api.add_resource(Usuario_detalle_api, '/usuario/detalle/','/usuario/detalle/<string:id>')
+
+api.add_resource(Curso_capacitacion_api,'/curso_capacitacion/','/curso_capacitacion/<string:id>')
+api.add_resource(Curso_capacitacion_add_api,'/curso_capacitacion/create/','/curso_capacitacion/create/<string:id>')
+api.add_resource(Curso_capacitacion_edit_api,'/curso_capacitacion/edit/','/curso_capacitacion/edit/<string:id>')
+api.add_resource(Curso_capacitacion_delete_api,'/curso_capacitacion/delete/','/curso_capacitacion/delete/<string:id>')
+api.add_resource(Curso_capacitacion_detalle_api,'/curso_capacitacion/detalle/','/curso_capacitacion/detalle/<string:id>')
+
 
 api.add_resource(Login_api,'/login/','/login/<string:id>')
 
