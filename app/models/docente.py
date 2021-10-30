@@ -1,4 +1,3 @@
-from app.models.curso import curso
 from typing import Tuple
 from .bd_connection import db
 

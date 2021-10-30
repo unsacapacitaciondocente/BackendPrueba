@@ -8,6 +8,7 @@ class ponente(db.Model):
     pon_estado = db.Column(db.String,nullable=True)
     pon_grado_academico = db.Column(db.String, nullable=True)
     pon_especialidad = db.Column(db.String, nullable=True)
+    pon_contrasena = db.Column(db.String, nullable=True)
 
     def toJSON(self):
         ponente_json = {
@@ -17,13 +18,14 @@ class ponente(db.Model):
             "telefono":self.pon_telefono,
             "estado":self.pon_estado,
             "grado_academico":self.pon_grado_academico,
-            "especialidad":self.pon_especialidad
+            "especialidad":self.pon_especialidad,
+            "contrasena":self.pon_contrasena
         }
         return ponente_json
 
 def add_ponente(data):
     try:
-        db.session.add(ponente(pon_nombre=data["nombre"], pon_correo=data["correo"], pon_telefono=data["telefono"], pon_estado=data["estado"], pon_grado_academico=data["grado_academico"], pon_especialidad=data["especialidad"] ))
+        db.session.add(ponente(pon_nombre=data["nombre"], pon_correo=data["correo"], pon_telefono=data["telefono"], pon_estado=data["estado"], pon_grado_academico=data["grado_academico"], pon_especialidad=data["especialidad"],pon_contrasena=data["contrasena"]))
         db.session.commit()
     except:
         return False
@@ -48,6 +50,7 @@ def edit_ponente(data):
         ponente_.pon_estado=data["estado"]
         ponente_.pon_grado_academico=data["grado_academico"]
         ponente_.pon_especialidad=data["especialidad"]
+        ponente_.pon_contrasena=data["contrasena"]
         db.session.commit()
     except:
         return False
