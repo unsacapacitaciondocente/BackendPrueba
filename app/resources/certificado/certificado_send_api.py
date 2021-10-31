@@ -2,13 +2,13 @@
 from flask_restful import Resource
 from flask import jsonify, send_file
 from tempfile import NamedTemporaryFile
-
+import cv2 as cv
+import numpy as np
 
 class Certificado_export(Resource):
     
     def get(self):
-        import cv2 as cv
-        import numpy as np
+
         try:
             with NamedTemporaryFile() as temp:
                 image_procesed = 255*np.ones((600,1000,3),dtype=np.uint8)
