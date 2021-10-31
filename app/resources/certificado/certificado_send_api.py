@@ -2,8 +2,6 @@
 from flask_restful import Resource
 from flask import jsonify, send_file
 from tempfile import NamedTemporaryFile
-import cv2 as cv
-import numpy as np
 
 class Certificado_export(Resource):
     
