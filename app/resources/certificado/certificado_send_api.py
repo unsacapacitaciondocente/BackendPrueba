@@ -1,11 +1,7 @@
 
 from flask_restful import Resource
-from app.models import curso
-from flask import request, jsonify, send_file,send_from_directory,Response
+from flask import jsonify, send_file
 from tempfile import NamedTemporaryFile
-import os
-from app import app
-from app.models import certificado_connection
 import cv2 as cv
 import numpy as np
 
