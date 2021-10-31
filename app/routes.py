@@ -66,7 +66,10 @@ from app.resources.asistencia_docente.asistencia_docente_delete_api import Asist
 from app.resources.asistencia_docente.asistencia_docente_detalle_api import Asistencia_docente_detalle_api
 from app.resources.asistencia_docente.asistencia_docente_edit_api import Asistencia_docente_edit_api
 
-
+from app.resources.asistencia_connection.asistencia_lista_curso_ponentes_api import Asistencia_lista_curso_ponentes_api
+from app.resources.asistencia_connection.asistencia_historial_asistencia_api import Asistencia_historial_asistencia_api
+from app.resources.asistencia_connection.asistencia_registro_asistencia_api import Asistencia_registro_asistencia_api
+from app.resources.asistencia_connection.asistencia_calificaciones_ponente_api import Asistencia_calificaciones_ponente_api
 
 from app.resources.login.login import Login_api
 
@@ -137,6 +140,13 @@ api.add_resource(Asistencia_docente_add_api,'/asistencia_docente/create/','/asis
 api.add_resource(Asistencia_docente_edit_api,'/asistencia_docente/edit/','/asistencia_docente/edit/<string:id>')
 api.add_resource(Asistencia_docente_delete_api,'/asistencia_docente/delete/','/asistencia_docente/delete/<string:id>')
 api.add_resource(Asistencia_docente_detalle_api,'/asistencia_docente/detalle/','/asistencia_docente/detalle/<string:id>')
+
+api.add_resource(Asistencia_lista_curso_ponentes_api,'/asistencia_lista_curso/','/asistencia_lista_curso/<string:id>')
+api.add_resource(Asistencia_historial_asistencia_api,'/asistencia_historial/','/asistencia_historial/<string:id>')
+api.add_resource(Asistencia_registro_asistencia_api, '/asistencia_registro/','/asistencia_registro/<string:id>' )
+api.add_resource(Asistencia_calificaciones_ponente_api, '/asistencia_calificaciones/','/asistencia_calificaciones/<string:id>')
+
+
 
 api.add_resource(Login_api,'/login/','/login/<string:id>')
 
