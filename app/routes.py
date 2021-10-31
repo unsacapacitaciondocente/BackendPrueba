@@ -48,13 +48,18 @@ from app.resources.grupo.grupo_edit_api import Grupo_edit_api
 
 from app.resources.reportes.cursos_by_ponente_api import Cursos_by_ponente_api
 
-
-
 from app.resources.documento_ponente.documento_ponente_api import Documento_ponente_api
 from app.resources.documento_ponente.documento_ponente_add_api import Documento_ponente_add_api
 from app.resources.documento_ponente.documento_ponente_delete_api import Documento_ponente_delete_api
 from app.resources.documento_ponente.documento_ponente_detalle_api import Documento_ponente_detalle_api
 from app.resources.documento_ponente.documento_ponente_edit import Documento_ponente_edit_api
+
+from app.resources.asistencia.asistencia_api import Asistencia_api
+from app.resources.asistencia.asistencia_add_api import Asistencia_add_api
+from app.resources.asistencia.asistencia_delete_api import Asistencia_delete_api
+from app.resources.asistencia.asistencia_detalle_api import Asistencia_detalle_api
+from app.resources.asistencia.asistencia_edit_api import Asistencia_edit_api
+
 
 from app.resources.login.login import Login_api
 
@@ -114,7 +119,11 @@ api.add_resource(Documento_ponente_edit_api,'/documento_ponente/edit/','/documen
 api.add_resource(Documento_ponente_delete_api,'/documento_ponente/delete/','/documento_ponente/delete/<string:id>')
 api.add_resource(Documento_ponente_detalle_api,'/documento_ponente/detalle/','/documento_ponente/detalle/<string:id>')
 
-
+api.add_resource(Asistencia_api,'/asistencia/','/asistencia/<string:id>')
+api.add_resource(Asistencia_add_api,'/asistencia/create/','/asistencia/create/<string:id>')
+api.add_resource(Asistencia_edit_api,'/asistencia/edit/','/asistencia/edit/<string:id>')
+api.add_resource(Asistencia_delete_api,'/asistencia/delete/','/asistencia/delete/<string:id>')
+api.add_resource(Asistencia_detalle_api,'/asistencia/detalle/','/asistencia/detalle/<string:id>')
 
 
 api.add_resource(Login_api,'/login/','/login/<string:id>')
