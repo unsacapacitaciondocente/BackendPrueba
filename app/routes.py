@@ -60,6 +60,13 @@ from app.resources.asistencia.asistencia_delete_api import Asistencia_delete_api
 from app.resources.asistencia.asistencia_detalle_api import Asistencia_detalle_api
 from app.resources.asistencia.asistencia_edit_api import Asistencia_edit_api
 
+from app.resources.asistencia_docente.asistencia_docente_api import Asistencia_docente_api
+from app.resources.asistencia_docente.asistencia_docente_add_api import Asistencia_docente_add_api
+from app.resources.asistencia_docente.asistencia_docente_delete_api import Asistencia_docente_delete_api
+from app.resources.asistencia_docente.asistencia_docente_detalle_api import Asistencia_docente_detalle_api
+from app.resources.asistencia_docente.asistencia_docente_edit_api import Asistencia_docente_edit_api
+
+
 
 from app.resources.login.login import Login_api
 
@@ -125,6 +132,11 @@ api.add_resource(Asistencia_edit_api,'/asistencia/edit/','/asistencia/edit/<stri
 api.add_resource(Asistencia_delete_api,'/asistencia/delete/','/asistencia/delete/<string:id>')
 api.add_resource(Asistencia_detalle_api,'/asistencia/detalle/','/asistencia/detalle/<string:id>')
 
+api.add_resource(Asistencia_docente_api,'/asistencia_docente/','/asistencia_docente/<string:id>')
+api.add_resource(Asistencia_docente_add_api,'/asistencia_docente/create/','/asistencia_docente/create/<string:id>')
+api.add_resource(Asistencia_docente_edit_api,'/asistencia_docente/edit/','/asistencia_docente/edit/<string:id>')
+api.add_resource(Asistencia_docente_delete_api,'/asistencia_docente/delete/','/asistencia_docente/delete/<string:id>')
+api.add_resource(Asistencia_docente_detalle_api,'/asistencia_docente/detalle/','/asistencia_docente/detalle/<string:id>')
 
 api.add_resource(Login_api,'/login/','/login/<string:id>')
 
