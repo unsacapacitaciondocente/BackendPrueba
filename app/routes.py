@@ -71,6 +71,11 @@ from app.resources.asistencia_connection.asistencia_historial_asistencia_api imp
 from app.resources.asistencia_connection.asistencia_registro_asistencia_api import Asistencia_registro_asistencia_api
 from app.resources.asistencia_connection.asistencia_calificaciones_ponente_api import Asistencia_calificaciones_ponente_api
 
+from app.resources.curso_seguimiento.curso_seguimiento_api import Curso_seguimiento_api
+from app.resources.curso_seguimiento.curso_seguimiento_add_api import Curso_seguimiento_add_api
+from app.resources.curso_seguimiento.curso_seguimiento_docentes_api import Curso_seguimiento_docentes_api
+
+
 from app.resources.login.login import Login_api
 
 from app import app
@@ -146,6 +151,9 @@ api.add_resource(Asistencia_historial_asistencia_api,'/asistencia_historial/','/
 api.add_resource(Asistencia_registro_asistencia_api, '/asistencia_registro/','/asistencia_registro/<string:id>' )
 api.add_resource(Asistencia_calificaciones_ponente_api, '/asistencia_calificaciones/','/asistencia_calificaciones/<string:id>')
 
+api.add_resource(Curso_seguimiento_api,'/curso_seguimiento/','/curso_seguimiento/<string:id>')
+api.add_resource(Curso_seguimiento_add_api, '/curso_seguimiento/create/', '/curso_seguimiento/create/<string:id>')
+api.add_resource(Curso_seguimiento_docentes_api,'/curso_seguimiento/docentes/','/curso_seguimiento/docentes/<string:id>')
 
 
 api.add_resource(Login_api,'/login/','/login/<string:id>')
