@@ -1,4 +1,3 @@
-from re import I
 from flask_restful import Api
 
 from app.resources.index import Index
@@ -32,7 +31,6 @@ from app.resources.usuario.usuario_add_api import Usuario_add_api
 from app.resources.usuario.usuario_delete_api import Usuario_delete_api
 from app.resources.usuario.usuario_detalle_api import Usuario_detalle_api
 from app.resources.usuario.usuario_edit_api import Usuario_edit_api
-
 
 from app.resources.curso_capacitacion.curso_capacitacion_api import Curso_capacitacion_api
 from app.resources.curso_capacitacion.curso_capacitacion_add_api import Curso_capacitacion_add_api
