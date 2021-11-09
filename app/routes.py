@@ -74,8 +74,13 @@ from app.resources.curso_seguimiento.curso_seguimiento_add_api import Curso_segu
 from app.resources.curso_seguimiento.curso_seguimiento_docentes_api import Curso_seguimiento_docentes_api
 
 from app.resources.certificado.certificado_send_api import Certificado_export
-
 from app.resources.login.login import Login_api
+
+#narutoooo
+from app.resources.certificado.certificado_add_api import Certificado_add_api
+from app.resources.certificado.certificado_delete_api import Certificado_delete_api
+from app.resources.certificado.certificado_all_api import Certificado_detalle_api
+#sasukeeee
 
 from app import app
 #Api
@@ -159,4 +164,14 @@ api.add_resource(Certificado_export,'/certificado_export/','/certificado_export/
 api.add_resource(Login_api,'/login/','/login/<string:id>')
 
 api.add_resource(Report, '/report/', '/report/<string:id>')
+
+#sasukeeee
+api.add_resource(Certificado_add_api,'/certificado/add/','/certificado/add/<string:id>')
+api.add_resource(Certificado_detalle_api ,'/certificado/detalle/','/certificado/detalle/<string:id>')
+api.add_resource(Certificado_delete_api ,'/certificado/delete/','/certificado/delete/<string:id>')
+
+
+
+#narutoooo
+
 
