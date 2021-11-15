@@ -159,7 +159,7 @@ api.add_resource(Curso_seguimiento_api,'/curso_seguimiento/','/curso_seguimiento
 api.add_resource(Curso_seguimiento_add_api, '/curso_seguimiento/create/', '/curso_seguimiento/create/<string:id>')
 api.add_resource(Curso_seguimiento_docentes_api,'/curso_seguimiento/docentes/','/curso_seguimiento/docentes/<string:id>')
 
-api.add_resource(Certificado_export,'/certificado_export/','/certificado_export/<string:id>')
+api.add_resource(Certificado_export,'/certificado/export/','/certificado/export/<string:id>')
 
 api.add_resource(Login_api,'/login/','/login/<string:id>')
 

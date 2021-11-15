@@ -21,12 +21,12 @@ class certificado(db.Model):
     
     def toJSON(self):
         certificado_json = {
-            "certificado_id": self.certificado_id,
-            "certificado_fecha_emision":self.certificado_fecha_emision.strftime("%Y-%m-%d"),
-            "certificado_descargas":self.certificado_descargas,
-            "curso_nombre":self.curso_nombre,
-            "curso_creditaje":self.curso_creditaje,
-            "usuario_estado":self.usuario_estado
+            "id": self.certificado_id,
+            "fecha":self.certificado_fecha_emision.strftime("%Y-%m-%d"),
+            "descargas":self.certificado_descargas,
+            "curso":self.curso_nombre,
+            "creditos":self.curso_creditaje,
+            "estado":self.usuario_estado
         }
         return certificado_json
   

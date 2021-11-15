@@ -3,8 +3,9 @@ from app.models import certificado
 from flask import jsonify, request
 class Certificado_detalle_api(Resource):
     def get(self):
-        data =request.json
-        return jsonify(certificado.all_certificados_by_usuario(data))           
+        return jsonify({"message":"Solo POST"})          
 
     def post(self):
-        return jsonify({"message":"Solo GET"})
+        data =request.json
+        return jsonify(certificado.all_certificados_by_usuario(data))  
+        
