@@ -29,7 +29,26 @@ class certificado(db.Model):
             "estado":self.usuario_estado
         }
         return certificado_json
-  
+    def toJsonUnite(self):
+        certificado_json = {
+            "certificado_id": self.certificado_id,
+            "certificado_nombre":self.certificado_nombre,
+            "certificado_fecha_emision":self.certificado_fecha_emision.strftime("%Y-%m-%d"),
+            "usuario_id":self.usuario_id,
+            "usuario_categoria":self.usuario_categoria,
+            "usuario_nombre":self.usuario_nombre,
+            "usuario_estado":self.usuario_estado,
+            "usuario_nota":self.usuario_nota,
+            "grupo_id":self.grupo_id,
+            "curso_contenido":self.curso_contenido,
+            "curso_nombre":self.curso_nombre,
+            "curso_fecha_inicio":self.curso_fecha_inicio.strftime("%Y-%m-%d"),
+            "curso_fecha_fin":self.curso_fecha_fin.strftime("%Y-%m-%d"),
+            "curso_resolucion":self.curso_resolucion,
+            "curso_creditaje":self.curso_creditaje,
+            "certificado_descargas":self.certificado_descargas
+        }
+        return certificado_json       
 
 def add_certificado(data):
     try:       
@@ -72,3 +91,8 @@ def all_certificados_by_usuario(key):
     for cert in  certificado_:
         arr_certificado["data"].append(cert.toJSON())
     return arr_certificado
+
+def detalle_certificado(key):
+    certificado_detalle = certificado.query.filter_by(certificado_id=key["id"]).first()
+    return certificado_detalle.toJsonUnite()
+

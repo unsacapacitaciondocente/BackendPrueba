@@ -1,7 +1,7 @@
 from flask_restful import Resource
 from app.models import certificado
 from flask import jsonify, request
-class Certificado_detalle_api(Resource):
+class Certificado_all_api(Resource):
     def get(self):
         return jsonify({"message":"Solo POST"})          
 
