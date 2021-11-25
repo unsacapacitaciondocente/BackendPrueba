@@ -25,7 +25,7 @@ class Certificado_export(Resource):
                     "Analsis de componentes no Principales"
                 ],
                 "docente":"Otorgado a: ACOSTA GONZALES IRINA XIMENA",
-                "cuerpo": 'En calidad de PARTICIPANTE APROBADO (18), durante el curso: "METODOS ESTADISTICOS MULTIVARIADOS \n  PARA LA INVESTIGACION USANDO EL PROGRAMA SPSS Y PSPP". Evento que fue realizado por \n la Direccion Universitaria de Desarrollo Docente, del 2 de agosto al 6 de \n  agosto  2021, equivalente a 1 Credito Academico,  \n segun Resolucion Vicerrectoral N° 451-2021-VR.AC.',
+                "cuerpo": 'En calidad de PARTICIPANTE APROBADO (18), durante el curso: \r "METODOS ESTADISTICOS MULTIVARIADOS \r  PARA LA INVESTIGACION USANDO EL PROGRAMA SPSS Y PSPP". Evento que fue realizado por \r la Direccion Universitaria de Desarrollo Docente, del 2 de agosto al 6 de \r  agosto  2021, equivalente a 1 Credito Academico,  \r segun Resolucion Vicerrectoral N° 451-2021-VR.AC.',
                 "fecha":"Arequipa, 30 de agosto de 2021",
                 "ente1":{
                     "cargo":"DIRECCION UNIVERSITARIA DE DESARROLLO DOCENTE",

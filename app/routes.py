@@ -1,3 +1,4 @@
+from re import I
 from flask_restful import Api
 
 from app.resources.index import Index
@@ -81,6 +82,12 @@ from app.resources.certificado.certificado_add_api import Certificado_add_api
 from app.resources.certificado.certificado_delete_api import Certificado_delete_api
 from app.resources.certificado.certificado_all_api import Certificado_all_api
 from app.resources.certificado.certificado_detalle_api import Certificado_detalle_api
+
+from app.resources.configuracion.configuracion_api import Configuracion_api
+from app.resources.configuracion.configuracion_add_api import Configuracion_add_api
+from app.resources.configuracion.configuracion_detalle_api import Configuracion_detalle_api
+from app.resources.configuracion.configuracion_delete_api import Configuracion_delete_api
+from app.resources.configuracion.configuracion_edit_api import Configuracion_edit_api
 #sasukeeee
 
 from app import app
@@ -171,6 +178,12 @@ api.add_resource(Certificado_add_api,'/certificado/add/','/certificado/add/<stri
 api.add_resource(Certificado_all_api ,'/certificado/detalle/','/certificado/detalle/<string:id>')
 api.add_resource(Certificado_delete_api ,'/certificado/delete/','/certificado/delete/<string:id>')
 api.add_resource(Certificado_detalle_api ,'/certificado/export_local/','/certificado/export_local/<string:id>')
+
+api.add_resource(Configuracion_add_api,'/configuracion/add/','/configuracion/add/<string:id>')
+api.add_resource(Configuracion_api ,'/configuracion/','/configuracion/<string:id>')
+api.add_resource(Configuracion_detalle_api,'/configuracion/detalle/','/configuracion/detalle/<string:id>')
+api.add_resource(Configuracion_delete_api,'/configuracion/delete/','/configuracion/delete/<string:id>')
+api.add_resource(Configuracion_edit_api, '/configuracion/edit/','/configuracion/edit/<string:id>' )
 
 
 #narutoooo
