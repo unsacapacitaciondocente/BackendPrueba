@@ -8,7 +8,7 @@ class Configuracion_add_api(Resource):
         return jsonify({"message":"Solo post"})
     def post(self):
         data  = request.json
-        if configuracion.add_curso(data):
+        if configuracion.add_configuracion(data):
             return jsonify({"message":"Registrado correctamente"})
         return jsonify({"message":"Error"})
         
