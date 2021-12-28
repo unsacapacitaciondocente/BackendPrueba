@@ -9,6 +9,5 @@ app.config.update(
     MAIL_PASSWORD = 'ylsjxkhumlmhmbkj'
 )
 
-from service import app
 app.config['SECRET_KEY'] = 'e4956c1e746a439599292e267b8afa6a'
 
