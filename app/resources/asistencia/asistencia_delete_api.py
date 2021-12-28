@@ -10,5 +10,5 @@ class Asistencia_delete_api(Resource):
         key = request.json
         if asistencia.delete_asistencia(key):
             return jsonify({"message":"Eliminado correctamente"})
-        return jsonify({"message":"Error al eliminar"})   
+        return jsonify({"message":"Error al eliminar"})  
 

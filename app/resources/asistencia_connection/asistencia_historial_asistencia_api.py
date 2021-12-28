@@ -12,3 +12,4 @@ class Asistencia_historial_asistencia_api(Resource):
 
     def post(self):
         return jsonify({"message":"Solo GET"})
+

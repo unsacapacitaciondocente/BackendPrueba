@@ -25,7 +25,7 @@ class Login_api(Resource):
                 'expiration': str(datetime.utcnow()+ timedelta(minutes=2))
             },
             app.config['SECRET_KEY'])
-            return jsonify({'token': token,'usuario':data['username']})
+            return jsonify({'token': token,'usuario':data['username'],'id':usuario_['id'],'nombre':usuario_['nombre'],'categoria':'Administrador'})
         else:
             return make_response('Unable to verify',403, {'www-Authenticate': 'Basic real:"Authentication failed"'})
 

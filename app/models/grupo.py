@@ -7,8 +7,8 @@ class grupo(db.Model):
     gru_nombre = db.Column(db.String,nullable=False)
     curso_capacitacion_id = db.Column(db.Integer,nullable=False)
     gru_estado = db.Column(db.String,nullable=False)
-    gru_fecha_inicio = db.Column(db.Date,nullable=False)
-    gru_fecha_final = db.Column(db.Date,nullable=False)
+    gru_hora_inicio = db.Column(db.String,nullable=False)
+    gru_hora_final = db.Column(db.String,nullable=False)
     gru_horario = db.Column(db.String,nullable=False)
     gru_observaciones = db.Column(db.String,nullable=False)
 
@@ -20,8 +20,8 @@ class grupo(db.Model):
             "nombre": self.gru_nombre,
             "curso_capacitacion_id": self.curso_capacitacion_id,
             "estado": self.gru_estado,
-            "fecha_inicio": self.gru_fecha_inicio.strftime("%Y-%m-%d"),
-            "fecha_final": self.gru_fecha_final.strftime("%Y-%m-%d"),
+            "hora_inicio": self.gru_hora_inicio,
+            "hora_final": self.gru_hora_final,
             "horario" : self.gru_horario,
             "observaciones" : self.gru_observaciones
         }
@@ -29,7 +29,7 @@ class grupo(db.Model):
   
 def add_grupo(data):
     try:
-        db.session.add(grupo(ponente_id=data["ponente_id"],gru_nombre=data["nombre"],curso_capacitacion_id=data["curso_capacitacion_id"],gru_estado=data["estado"],gru_fecha_inicio=datetime.datetime.strptime(data["fecha_inicio"],'%Y-%m-%d'),gru_fecha_final=datetime.datetime.strptime(data["fecha_final"],'%Y-%m-%d'),gru_horario=data["horario"],gru_observaciones=data["observaciones"]))
+        db.session.add(grupo(ponente_id=data["ponente_id"],gru_nombre=data["nombre"],curso_capacitacion_id=data["curso_capacitacion_id"],gru_estado=data["estado"],gru_hora_inicio=data["fecha_inicio"],gru_hora_final=data["hora_final"],gru_horario=data["horario"],gru_observaciones=data["observaciones"]))
         db.session.commit()   
     except:
         
@@ -52,8 +52,8 @@ def edit_grupo(data):
         grupo_.gru_nombre=data["nombre"]
         grupo_.curso_capacitacion_id=data["curso_capacitacion_id"]
         grupo_.gru_estado=data["estado"]
-        grupo_.gru_fecha_inicio=data["fecha_inicio"]
-        grupo_.gru_fecha_final=data["fecha_final"]
+        grupo_.gru_hora_inicio=data["hora_inicio"]
+        grupo_.gru_hora_final=data["hora_final"]
         grupo_.gru_horario=data["horario"]
         grupo_.gru_observaciones=data["observaciones"]
         db.session.commit()

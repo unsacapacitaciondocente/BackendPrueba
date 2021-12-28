@@ -1,3 +1,4 @@
+"""
 from flask_restful import Resource
 from app.models import documento_ponente
 from flask import request, jsonify
@@ -11,3 +12,4 @@ class Documento_ponente_api(Resource):
 
     def post(self):
         return jsonify({"message":"Solo GET"})
+        """

@@ -3,6 +3,6 @@ from flask import jsonify
 
 class Index(Resource):
     def get(self):
-        return jsonify({"message":"welcome to this API V1! GET METHOD"})
+        return jsonify({"message":"welcome to this API V2! GET METHOD"})
     def post(self):
-        return jsonify({"message":"welcome to this API V1! POST METHOD"})
+        return jsonify({"message":"welcome to this API V2! POST METHOD"})

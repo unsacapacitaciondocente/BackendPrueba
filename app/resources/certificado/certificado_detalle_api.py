@@ -9,4 +9,3 @@ class Certificado_detalle_api(Resource):
     def post(self):
         data = request.json
         return jsonify(certificado.detalle_certificado(data) ) 
-        

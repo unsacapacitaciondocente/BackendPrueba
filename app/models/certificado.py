@@ -5,77 +5,74 @@ class certificado(db.Model):
     certificado_id = db.Column(db.Integer,primary_key=True)
     certificado_nombre = db.Column(db.String,nullable=False)
     certificado_fecha_emision = db.Column(db.Date, nullable=True)
+    certificado_cuerpo = db.Column(db.String, nullable=True)
+    certificado_descargas = db.Column(db.Integer,nullable=True)
     usuario_id = db.Column(db.Integer,nullable=False)
+    usuario_nombre = db.Column(db.String,nullable=False)
     usuario_categoria = db.Column(db.String,nullable=False)
-    usuario_nombre = db.Column(db.String,nullable=True)
     usuario_estado = db.Column(db.String,nullable=False)
-    usuario_nota = db.Column(db.Float, nullable=True)
     grupo_id = db.Column(db.Integer,nullable=True)
     curso_contenido = db.Column(db.String,nullable=True)
     curso_nombre = db.Column(db.String,nullable=True)
-    curso_fecha_inicio = db.Column(db.Date,nullable=True)
-    curso_fecha_fin = db.Column(db.Date,nullable=True)    
-    curso_resolucion = db.Column(db.String,nullable=True)
-    curso_creditaje = db.Column(db.Float,nullable=True)
-    certificado_descargas = db.Column(db.Integer,nullable=True)
+    curso_creditos = db.Column(db.Integer,nullable=True)
+    name_1 = db.Column(db.String,nullable=True)
+    name_2 = db.Column(db.String,nullable=True)
+    name_3 = db.Column(db.String,nullable=True)
+    name_4 = db.Column(db.String,nullable=True)
+    name_5 = db.Column(db.String,nullable=True)
+    name_6 = db.Column(db.String,nullable=True)
+    value_1 = db.Column(db.String,nullable=True)
+    value_2 = db.Column(db.String,nullable=True)
+    value_3 = db.Column(db.String,nullable=True)
+    value_4 = db.Column(db.String,nullable=True)
+    value_5 = db.Column(db.String,nullable=True)
+    value_6 = db.Column(db.String,nullable=True)
+    estado_1 = db.Column(db.Boolean,nullable=True)
+    estado_2 = db.Column(db.Boolean,nullable=True)
+    estado_3 = db.Column(db.Boolean,nullable=True)
+    estado_4 = db.Column(db.Boolean,nullable=True)
+    estado_5 = db.Column(db.Boolean,nullable=True)
+    estado_6 = db.Column(db.Boolean,nullable=True)
     
     def toJSON(self):
         certificado_json = {
-            "id": self.certificado_id,
-            "fecha":self.certificado_fecha_emision.strftime("%Y-%m-%d"),
-            "descargas":self.certificado_descargas,
-            "curso":self.curso_nombre,
-            "creditos":self.curso_creditaje,
-            "estado":self.usuario_estado
-        }
-        return certificado_json
-    def toJsonUnite(self):
-        certificado_json = {
             "certificado_id": self.certificado_id,
             "certificado_nombre":self.certificado_nombre,
-            "certificado_fecha_emision":self.certificado_fecha_emision.strftime("%Y-%m-%d"),
+            "certificado_fecha_emision":self.certificado_fecha_emision,
+            "certificado_cuerpo":self.certificado_cuerpo,
+            "certificado_descargas":self.certificado_descargas,            
             "usuario_id":self.usuario_id,
-            "usuario_categoria":self.usuario_categoria,
             "usuario_nombre":self.usuario_nombre,
+            "usuario_categoria":self.usuario_categoria,
             "usuario_estado":self.usuario_estado,
-            "usuario_nota":self.usuario_nota,
             "grupo_id":self.grupo_id,
-            "curso_contenido":self.curso_contenido,
             "curso_nombre":self.curso_nombre,
-            "curso_fecha_inicio":self.curso_fecha_inicio.strftime("%Y-%m-%d"),
-            "curso_fecha_fin":self.curso_fecha_fin.strftime("%Y-%m-%d"),
-            "curso_resolucion":self.curso_resolucion,
-            "curso_creditaje":self.curso_creditaje,
-            "certificado_descargas":self.certificado_descargas
+            "curso_creditos":self.curso_creditos,
+            "curso_contenido":self.curso_contenido,
+            "nombre_1": self.name_1,
+            "nombre_2": self.name_2,
+            "nombre_3": self.name_3,
+            "nombre_4": self.name_4,
+            "nombre_5": self.name_5,
+            "nombre_6": self.name_6,
+            "valor_1": self.value_1,
+            "valor_2": self.value_2,
+            "valor_3": self.value_3,
+            "valor_4": self.value_4,
+            "valor_5": self.value_5,
+            "valor_6": self.value_6,
+            "estado_1":self.estado_1,
+            "estado_2":self.estado_2,
+            "estado_3":self.estado_3,
+            "estado_4":self.estado_4,
+            "estado_5":self.estado_5,
+            "estado_6":self.estado_6,
         }
-        return certificado_json       
+        return certificado_json
 
-def add_certificado(data):
-    try:       
-        db.session.add(certificado(
-            certificado_nombre=data["certificado_nombre"],
-            certificado_fecha_emision=data["certificado_fecha"],
-            usuario_id = data["usuario_id"],
-            usuario_categoria = data["usuario_categoria"],
-            usuario_nombre = data["usuario_nombre"],
-            usuario_estado = data["usuario_estado"],
-            usuario_nota = data["usuario_nota"],
-            grupo_id = data["grupo_id"],
-            curso_contenido = data["curso_contenido"],
-            curso_nombre = data["curso_nombre"],
-            curso_fecha_inicio = data["curso_fecha_inicio"],
-            curso_fecha_fin = data["curso_fecha_fin"],
-            curso_resolucion = data["curso_resolucion"],
-            curso_creditaje = data["curso_creditaje"],
-            certificado_descargas = data["certificado_descargas"]))
-        db.session.commit()           
-    except:        
-        return False
-    return True
-
-def delete_certificado(key):
+def delete_certificado_all(key):
     try:
-        certificado_ = certificado.query.filter_by(certificado_id=key["id"]).first()
+        certificado_ = certificado.query.filter_by(grupo_id=key["id"])
         db.session.delete(certificado_)
         db.session.commit()
     except:
@@ -94,5 +91,4 @@ def all_certificados_by_usuario(key):
 
 def detalle_certificado(key):
     certificado_detalle = certificado.query.filter_by(certificado_id=key["id"]).first()
-    return certificado_detalle.toJsonUnite()
-
+    return certificado_detalle.toJSON()

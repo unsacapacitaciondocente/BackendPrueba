@@ -11,4 +11,3 @@ class Asistencia_add_api(Resource):
         if asistencia.add_asistencia(data):
             return jsonify({"message":"Registrado correctamente"})
         return jsonify({"message":"Error, no se pudo agregar"})
-        

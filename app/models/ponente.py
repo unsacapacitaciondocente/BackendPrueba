@@ -73,4 +73,9 @@ def detalle_ponente(id):
         return {"message":"No se ha podido obtener"}
     return ponente_.toJSON()
 
+def buscar_PonEmail(PonEmail):
+    usuario_ = ponente.query.filter_by(pon_correo=PonEmail).first()
+    if usuario_ == None:
+        return {"message":"No se ha podido obtener"}
+    return usuario_.toJSON()
 

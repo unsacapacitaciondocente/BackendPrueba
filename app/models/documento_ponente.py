@@ -1,3 +1,4 @@
+"""
 from .bd_connection import db
 
 class documento_ponente(db.Model):
@@ -61,3 +62,5 @@ def detalle_documento_ponente(id):
     if documento_ponente_ == None:
         return {"message":"No se ha podido obtener"}
     return documento_ponente_.toJSON()
+
+    """

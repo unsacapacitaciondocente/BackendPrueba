@@ -11,6 +11,9 @@ class curso_capacitacion(db.Model):
     cur_cap_horas= db.Column(db.Float,nullable=False)#
     cur_cap_presupuesto= db.Column(db.Float,nullable=False)#
     cur_cap_observacion = db.Column(db.String,nullable=False)#
+    cur_cap_vacantes = db.Column(db.Integer,nullable=False)#
+    cur_cap_fecha_inicial=db.Column(db.String,nullable=False)#
+    cur_cap_fecha_final=db.Column(db.String,nullable=False)#
 
     def toJSON(self):
         curso_capacitacion_json = {
@@ -22,14 +25,17 @@ class curso_capacitacion(db.Model):
             "creditaje": self.cur_cap_creditaje,
             "horas": self.cur_cap_horas,
             "presupuesto": self.cur_cap_presupuesto,
-            "observacion": self.cur_cap_observacion
+            "observacion": self.cur_cap_observacion,
+            "vacantes": self.cur_cap_vacantes,
+            "fecha_inicial": self.cur_cap_fecha_inicial,
+            "fecha_final": self.cur_cap_fecha_final,
             
         }
         return curso_capacitacion_json
   
 def add_curso_capacitacion(data):
     try:
-        db.session.add(curso_capacitacion(cur_cap_nombre=data["nombre"],cur_cap_descripcion=data["descripcion"],cur_cap_estado=data["estado"],cur_cap_resolucion=data["resolucion"],cur_cap_creditaje=data["creditaje"],cur_cap_horas=data["horas"],cur_cap_presupuesto=data["presupuesto"],cur_cap_observacion=data["observacion"]))
+        db.session.add(curso_capacitacion(cur_cap_nombre=data["nombre"],cur_cap_descripcion=data["descripcion"],cur_cap_estado=data["estado"],cur_cap_resolucion=data["resolucion"],cur_cap_creditaje=data["creditaje"],cur_cap_horas=data["horas"],cur_cap_presupuesto=data["presupuesto"],cur_cap_observacion=data["observacion"],cur_cap_vacantes=data['vacantes'],cur_cap_fecha_inicial=data['fecha_inicial'],cur_cap_fecha_final=data['fecha_final']))
         db.session.commit()   
     except:
         return False
@@ -55,6 +61,9 @@ def edit_curso_capacitacion(data):
         curso_capacitacion_.cur_cap_horas=data["horas"]
         curso_capacitacion_.cur_cap_presupuesto=data["presupuesto"]
         curso_capacitacion_.cur_cap_observacion=data["observacion"]
+        curso_capacitacion_.cur_cap_vacantes=data['vacantes']
+        curso_capacitacion_.cur_cap_fecha_inicial=data['fecha_inicial']
+        curso_capacitacion_.cur_cap_fecha_final=data['fecha_final']
         db.session.commit()
     except:
         return False

@@ -21,9 +21,8 @@ class asistencia(db.Model):
  
 def add_asistencia(data):
     try:
-       
         db.session.add(asistencia(asi_fecha=datetime.datetime.strptime(data["fecha"],'%Y-%m-%d'),grupo_id=data["grupo_id"],asi_comentario=data["comentario"],asi_estado=data["estado"]))
-        db.session.commit()           
+        db.session.commit()       
     except:
         return False
     return True

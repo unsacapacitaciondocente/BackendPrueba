@@ -85,3 +85,8 @@ def detalle_docente(id):
     if docente_ == None:
         return {"message":"No se ha podido obtener"}
     return docente_.toJSON()
+def buscar_docEmail(docEmail):
+    usuario_ = docente.query.filter_by(doc_email=docEmail).first()
+    if usuario_ == None:
+        return {"message":"No se ha podido obtener"}
+    return usuario_.toJSON()
